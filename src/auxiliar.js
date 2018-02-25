@@ -8,8 +8,6 @@ var canvas, // Canvas en el que dibujaremos el juego
 	gs,		// Servidor gráfico
 	game;	// Juego
 
-//-------------------------------------------------------------------------------------------
-
 // Servidor gráfico ad-hoc para este juego
 var CustomGraphicServer = function() {
 
@@ -91,10 +89,7 @@ var CustomGraphicServer = function() {
 		ctx.fillText(message, canvas.width/2, 30);
 		ctx.fillStyle = "#FFF";
 	};
-}; //var CustomGraphicServer
-
-
-//-------------------------------------------------------------------------------------------
+};
 
 /**
  * Función de inicialización del canvas
@@ -118,22 +113,12 @@ var InitCanvas = function(container, width, height, className) {
     gs = new CustomGraphicServer();
 };
 
-//-------------------------------------------------------------------------------------------
-
 /**
  * Función que inicia el juego. Una vez lanzada, comenzará todo el juego
  */
 function start() {
 	InitCanvas("gamecontainer", 320, 460, "canvas");
 	InputServer();
-	/*
-	this.load = function (spriteSrc, spriteData, callback) {
-		this.maps = spriteData;
-		this.image = new Image();
-		this.image.onload = callback;
-		this.image.src = spriteSrc;
-	};
-	*/
 	gs.load("img/sprites.png",
 		{
 		"8-ball": {"x":336,"y":406,"w":165,"h":200},
@@ -151,8 +136,6 @@ function start() {
 			game.initGame();
 		});
 }
-
-//-------------------------------------------------------------------------------------------
 
 /**
  * Función que inicia las funciones responsables de interpretar los eventos de ratón y de touch
