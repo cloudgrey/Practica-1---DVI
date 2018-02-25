@@ -153,7 +153,7 @@ MemoryGame = function(gs) {
 							this.paresEncontrados++;
 						}else{
 							this.espera=true;
-							this.textoEstadoJuego = "Try again :(";
+							this.textoEstadoJuego = "Try ag :(";
 							carta1 = this.arrayCartas[i];
 							carta2 = this.arrayCartas[cardId];
 
