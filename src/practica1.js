@@ -20,7 +20,7 @@ MemoryGame = function(gs) {
 
 	//Contiene el estado de la partida y se ira modificando a medida que se avance
 	//e interaccione con las cartas.
-	this.textoEstadoJuego = "Memory Task";
+	this.textoEstadoJuego = "Memory Game";
 
 	//Apunta al servidor grafico que se pasa como parametro en la constructora desde el fichero "auxiliar.js".
 	this.servgraf = gs;
