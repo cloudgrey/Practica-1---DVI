@@ -134,7 +134,7 @@ MemoryGame = function(gs) {
 		
 		if(!this.espera){
 
-			if(cardId && this.arrayCartas[cardId]){ //si ha clicado dentro del tablero y ademas el clic ha sido sobre el sprite de una carta
+			if(cardId>=0 && this.arrayCartas[cardId]){ //si ha clicado dentro del tablero y ademas el clic ha sido sobre el sprite de una carta
 
 				if(this.arrayCartas[cardId].estado == "bocabajo"){
 					this.arrayCartas[cardId].flip();
