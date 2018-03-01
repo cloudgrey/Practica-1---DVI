@@ -134,39 +134,45 @@ MemoryGame = function(gs) {
 		
 		if(!this.espera){
 
-			if(this.arrayCartas[cardId].estado == "bocabajo"){
-				this.arrayCartas[cardId].flip();
-				this.cartasVolteadas++;
-			}
-			
-			if(this.cartasVolteadas == 2){
+			if(cardId && this.arrayCartas[cardId]){ //si ha clicado dentro del tablero y ademas el clic ha sido sobre el sprite de una carta
 
-				var iguales = false;
+				if(this.arrayCartas[cardId].estado == "bocabajo"){
+					this.arrayCartas[cardId].flip();
+					this.cartasVolteadas++;
+				}
 				
-				for(i = 0; i < this.arrayCartas.length; i++){
-					if(this.arrayCartas[i].estado == "bocarriba" && i != cardId){
-						iguales = this.arrayCartas[i].compareTo(this.arrayCartas[cardId].nombreCarta); 
-						if(iguales){
-							this.arrayCartas[i].found();
-							this.arrayCartas[cardId].found();
-							this.textoEstadoJuego = "Match found!";
-							this.paresEncontrados++;
-						}else{
-							this.espera=true;
-							this.textoEstadoJuego = "Try again :(";
-							carta1 = this.arrayCartas[i];
-							carta2 = this.arrayCartas[cardId];
+				if(this.cartasVolteadas == 2){
 
-							that = this;
-							setTimeout(function() {
-							    voltea(carta1, carta2);
-							    that.espera = false;
-							}, 1000);
-						}
-					}//if se ha hallado la otra carta que ya estaba bocarriba
-				}//for
-				this.cartasVolteadas = 0;
-			}//if this.cartasVolteadas == 2
+					var iguales = false;
+					
+					for(i = 0; i < this.arrayCartas.length; i++){
+						if(this.arrayCartas[i].estado == "bocarriba" && i != cardId){
+							iguales = this.arrayCartas[i].compareTo(this.arrayCartas[cardId].nombreCarta); 
+							if(iguales){
+								this.arrayCartas[i].found();
+								this.arrayCartas[cardId].found();
+								this.textoEstadoJuego = "Match found!";
+								this.paresEncontrados++;
+							}else{
+								this.espera=true;
+								this.textoEstadoJuego = "Try again :(";
+								carta1 = this.arrayCartas[i];
+								carta2 = this.arrayCartas[cardId];
+
+								that = this;
+								setTimeout(function() {
+								    voltea(carta1, carta2);
+								    that.espera = false;
+								}, 1000);
+							}
+						}//if se ha hallado la otra carta que ya estaba bocarriba
+					}//for
+					this.cartasVolteadas = 0;
+				}//if this.cartasVolteadas == 2
+
+			}//control de clicar en sitios que no son cartas
+			//else console.log("has clicado en algo que no es una carta");
+
 		}//if !this.espera
 	}//onClick
 
